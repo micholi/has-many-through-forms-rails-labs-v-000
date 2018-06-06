@@ -9,5 +9,6 @@ class Post < ActiveRecord::Base
     category_attributes.values.each do |cat_att|
       category = Category.find_or_create_by(cat_att)
       self.categories << category
+    end
   end
 end
