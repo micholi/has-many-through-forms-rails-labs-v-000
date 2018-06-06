@@ -6,8 +6,7 @@
 
 <h3>Comments</h3>
 <% @post.comments.each do |comment| %>
-  <%= comment.user.username %>
-  <%= comment.content %>
+  <p><%= comment.user.username %> says <%= comment.content %></p>
 <% end %>
 
 <h3>Users Talking About This</h3>
