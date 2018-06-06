@@ -15,4 +15,16 @@
   <%= link_to user.username, user_path(user) %>
 <% end %>
 
+<h3>Comment on This Post</h3>
+  <% form_for (@comment) do |f| %>
 
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.collection_select :user_id, User.all, :id, :username %>
+    <%= f.fields_for :user, @omment.users.build do |user| %>
+    <%= user.text_field :username %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  <% end %>
+  <%= f.submit %>
+  <% end %>
