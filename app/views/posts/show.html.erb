@@ -16,17 +16,16 @@
 <% end %>
 
 <h3>Comment on This Post</h3>
-  <% form_for(@post.comments.build) do |f| %>
+  <% form_for @comment do |f| %>
 
   <%= f.label :content %>
   <%= f.text_area :content %>
 
-  <%= f.label :user %>
-  <%= f.hidden_field :post_id, value: @post.id %>
   <%= f.collection_select :user_id, User.all, :id, :username %>
-  <%= f.fields_for @post.comments.build_user do |user| %>
+  <%= f.fields_for :user, @comment.build.user do |user| %>
   <%= user.text_field :username %>
 
   <% end %>
+  <%= f.hidden_field :post_id, value: @post.id %>
   <%= f.submit %>
   <% end %>
