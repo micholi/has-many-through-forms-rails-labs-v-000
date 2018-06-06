@@ -4,6 +4,6 @@ class Comment < ActiveRecord::Base
   accepts_nested_attributes_for :user, reject_if: :username.blank?
 
   def user_attributes=(user_attributes)
-      self.user = User.find_or_create_by(user_attributes)
+    self.user = User.find_or_create_by(user_attributes)
   end
 end
