@@ -18,7 +18,7 @@
 <h3>Comment on This Post</h3>
   <% form_for (comment = Comment.new) do |f| %>
 
-  <%= f.label :content %>
+  <%= f.label :comment_content %>
   <%= f.text_area :content %>
 
   <%= f.collection_select :user_id, User.all, :id, :username %>
