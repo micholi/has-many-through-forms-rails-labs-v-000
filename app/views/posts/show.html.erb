@@ -6,6 +6,8 @@
   <%= comment.user.username %>
   <%= comment.content %>
 <% end %>
+
+<h3>Users Talking About This</h3>
 <% @post.users.uniq.each do |user| %>
   <%= link_to user.username, user_path(user) %>
 <% end %>
