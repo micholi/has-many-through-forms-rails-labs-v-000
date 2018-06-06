@@ -1,6 +1,9 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
+
+<h3>Comments</h3>
 <% @post.comments.each do |comment| %>
+  <%= comment.user.username %>
   <%= comment.content %>
 <% end %>
 <% @post.users.uniq.each do |user| %>
