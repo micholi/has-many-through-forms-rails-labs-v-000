@@ -21,12 +21,11 @@
   <%= f.label :content %>
   <%= f.text_area :content %>
 
-  <%= f.hidden_field :post_id, value: @post.id %>
   <%= f.collection_select :user_id, User.all, :id, :username %>
   <%= f.fields_for :user, @comment.users.build do |user| %>
   <%= user.text_field :username %>
 
-  
+  <%= f.hidden_field :post_id, value: @post.id %>
   <% end %>
   <%= f.submit %>
   <% end %>
