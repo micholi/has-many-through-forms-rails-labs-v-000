@@ -16,7 +16,9 @@
 <% end %>
 
 <h3>Comment on This Post</h3>
-  <% form_for @comment do |f| %>
+  <% form_for @post.comments.build do |f| %>
+
+  @comment = @post.comments.build
 
   <%= f.label :content %>
   <%= f.text_area :content %>
