@@ -16,13 +16,13 @@
 <% end %>
 
 <h3>Comment on This Post</h3>
-  <% form_for (comment = Comment.new) do |f| %>
+  <% form_for (@comment = Comment.new) do |f| %>
 
   <%= f.label :content %>
   <%= f.text_area :content %>
 
   <%= f.collection_select :user_id, User.all, :id, :username %>
-  <%= f.fields_for :user_attributes, comment.user_id do |user| %>
+  <%= f.fields_for :user_attributes, @comment.user_id do |user| %>
   <%= user.text_field :username %>
   <% end %>
 
